@@ -12,6 +12,12 @@ pipeline {
 '''
       }
     }
+    stage('testing') {
+      steps {
+        sh '''rails test
+'''
+      }
+    }
     stage('build docker') {
       steps {
         sh '''docker build -t chyld/popcorn:$BUILD_NUMBER .
